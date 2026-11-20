@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Visuals extends JPanel {
+public class Visuals {
     private JFrame frame;
     private JPanel panel;
 
@@ -97,6 +97,8 @@ public class Visuals extends JPanel {
 
     public void setPreviousAction(ActionListener action) { previousCardButton.addActionListener(action); }
 
+    public void setShowAnswerButton(ActionListener action)  { showAnswerButton.addActionListener(action); }
+
     private void initMenu() {
         fileMenu.add(aboutItem);
         fileMenu.addSeparator();
@@ -113,6 +115,16 @@ public class Visuals extends JPanel {
                 "Information",
                 JOptionPane.INFORMATION_MESSAGE
         );
+    }
+
+    public void showTranslation(String text) {
+        translation.setText(text);
+        showAnswerButton.setText("Hide");
+    }
+
+    public void hideTranslation() {
+        translation.setText("");
+        showAnswerButton.setText("Show Answer");
     }
 
     public JMenuItem getAboutItem() { return aboutItem; }
